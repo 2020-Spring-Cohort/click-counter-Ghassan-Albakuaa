@@ -6,6 +6,35 @@
     <title>Module 4 Project</title>
 </head>
 <body>
+<script>
+        var i=1;
+       var b =new Image();
+        b.src='https://media.giphy.com/media/xUPGcyuLXBczDypC0M/giphy.gif';
+        b.style.position='absolute';
+        document.body.appendChild(b);
+          
+        var delta = 0;
+        var amount =250;
+        for(var j=100; j <= 1000; j++)
+            {
+                function draw ()
+        {
+           
+            b.style.left = j* Math.sin(delta) + 'px';
+            delta += .1;
+            requestAnimationFrame(draw);
+            
+        }
+     
+        
+            }
+        
+        const cookie =setInterval(draw (), 2000);
+                
+    
+       // b.style.display="none";
+        
+        </script>
     <div class="container">
         <div class="anchor"></div>
     </div>
