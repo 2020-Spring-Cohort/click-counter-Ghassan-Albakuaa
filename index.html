@@ -51,9 +51,7 @@
     transform:translate(0);
     height: 40px;
     
-         
 }
- 
 
 .mybutton:hover {
     transform: translateY(-3px);
@@ -65,8 +63,6 @@
     
      background-image: url("https://cdn.dribbble.com/users/319473/screenshots/4111136/reinvently_insights_3.0.gif" ) ;
     background-size: 150px 100px;
-
-    
 }
 
 .mybutton:active{
@@ -86,15 +82,15 @@
     z-index: -1;
     transition: all .6s;
 }
-  
-.mybutton::after{
-    background-color: #100101;
-    opacity: 1;
-     border: .4px solid #cbd0e0; /* Green */
-}
+ 
 .mybutton::after{
     transform: scaleX(1.4)scaleY(1.6);
     opacity: 0;
+}
+      .mybutton::after{
+    background-color: #100101;
+    opacity: 1;
+     border: .4px solid #cbd0e0; /* Green */
 }
 
 @keyframes movebotton{
