@@ -4,40 +4,251 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Module 4 Project</title>
-</head>
-<body>
-<script>
-        var i=1;
-       var b =new Image();
-        b.src='https://media.giphy.com/media/xUPGcyuLXBczDypC0M/giphy.gif';
-        b.style.position='absolute';
-        document.body.appendChild(b);
-          
-        var delta = 0;
-        var amount =250;
-        for(var j=100; j <= 1000; j++)
-            {
-                function draw ()
-        {
-           
-            b.style.left = j* Math.sin(delta) + 'px';
-            delta += .1;
-            requestAnimationFrame(draw);
-            
-        }
-     
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <link type="text/css" rel="stylesheet" href="src/css/style.css">
+       
+        <style>
+        @keyframes moveInBoton{
+    0% {
+        opacity: 0;
+        transform:translateY(-70px);
         
-            }
-        
-        const cookie =setInterval(draw (), 2000);
-                
+         80%{
+         transform:translateY(-20px);
+    }
     
-       // b.style.display="none";
+    100% {
+        opacity: 1;
+    transform:translateY(0);
+        transform:translate(0);
+         position: absolute;
+  
+    top: 94%;
+    left: 78%;
+    }
+    
+    }
+    
+  
+    
+    100% {
+        opacity: 1;
+    transform:translate(0);
+    }
+    
+}
+
+
+
+.mybutton {
+    background-color: #000;
+    color: #fff;
+    transform:translate(0);
+    height: 40px;
+    
+         
+}
+ 
+
+.mybutton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 70px 170px rgba($color-lightgreen,.2);
+     color: #e9ecf7;
+   
+    background-color: #000;
+    height: 50px;
+    
+     background-image: url("https://cdn.dribbble.com/users/319473/screenshots/4111136/reinvently_insights_3.0.gif" ) ;
+    background-size: 150px 100px;
+
+    
+}
+
+.mybutton:active{
+    transform: translateY(-1px);
+      box-shadow: 0 70px 170px rgba(0,0,0,.2);
+}
+
+.mybutton::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: -1;
+    transition: all .6s;
+}
+  
+.mybutton::after{
+    background-color: #100101;
+    opacity: 1;
+     border: .4px solid #cbd0e0; /* Green */
+}
+.mybutton::after{
+    transform: scaleX(1.4)scaleY(1.6);
+    opacity: 0;
+}
+
+@keyframes movebotton{
+    0% {
+        opacity: 0;
+        transform:translateY(-100);
+    }
+    
+    80%{
+         transform:translateY(20);
+    }
+    
+    100% {
+        opacity: 1;
+    transform:translateY(0);
+    }
+}
+    
+
+.mybutton{
+    animation: moveInBoton .1s ease-out 1s;
+    animation-fill-mode: backwards;
+    
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    transform:translate(0);
+         position: absolute;
+  
+    top: 300%;
+    left: -20%;
+}
+            
+ .myBtn22{
+    animation: moveInBoton .1s ease-out 1s;
+    animation-fill-mode: backwards;
+    
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    transform:translate(0);
+         position: absolute;
+  
+    top: 300%;
+    left: -20%;
+}
+            .myBtn33{
+    animation: moveInBoton .1s ease-out 1s;
+    animation-fill-mode: backwards;
+    
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    transform:translate(0);
+         position: absolute;
+  
+    top: 370%;
+    left: -20%;
+}
+.imgt
+ {
+ 
+ opacity: 0;
+  z-index: 5;
+ }
+            
+.mygamedone2
+  {
+ opacity: 0;
+  z-index: 5; 
+      width: 700px;
+ }
+ .gameOver{
+       animation: moveInBoton .1s ease-out 1s;
+    animation-fill-mode: backwards;
+    
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    transform:translate(0);
+         position: absolute;
+  font-size:100px; 
+    top: -170%;
+    left: 240%;          
+  }           
+  .game{
+           animation: moveInBoton .1s ease-out 1s;
+    animation-fill-mode: backwards;
+    
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    transform:translate(0);
+         position: absolute;
+  font-size:100px; 
+    top: -170%;
+    left: 240%;                  
+  }     
+  
+      
+            
+            
+ .flag{
+   opacity: 0;  
+    }        
+        </style>
+        <title>Clicks Game</title>
+    </head>
+
+    <body>
         
-        </script>
-    <div class="container">
-        <div class="anchor"></div>
-    </div>
+       
+     
+        <div class="wrapper clearfix">
+            <div class="player-0-panel active">
+                <div class="player-name" id="name-0">Clicks Counter</div>
+                <div class="player-score" id="score-0">0</div>
+                <div class="player-current-box">
+                    <div class="player-current-label">Current</div>
+                    <div class="player-current-score" class="clickme" id="msg">0</div>
+                </div>
+            </div>
+            
+          
+            <button class="btn-new" id="newgame" onClick="refreshPage()"><i class="ion-ios-plus-outline"></i>New game</button>
+            
+            
+            
+        </div>
+      
+        <div class="header">
+  <input type="submit" id=btn2 class="myBtn2 mybutton" value="Companions">
+  <input type="submit" id=btn22 class="myBtn22 mybutton" value="Companions">    
+   <input type="submit" id=btn33 class="myBtn33 mybutton" value="Compounder"> 
+            <input type="submit"  class="myBtn333 mybutton" value="Compounder"> 
+           
+            
+ <input type="submit" class="clickme" id="myBtn" value="click me">
+        <p id="msg" /><br>
+        <p id="msg2" class="flag"/> /><br>
+        <p id="msg3" class="flag"/>/><br>
+        <p id="re"  class="gameOver"/><br>
+            <p id="gameO"  class="game"/><br>
+        </div>
+         <div style="position: relative; left: 0; top: 0;">
+     <img class ="imgt"  src="img/abstract-blue-wave-design-on-transparent-background-vector.jpg" style="position: absolute; top: 130px; left: 770px;  "/>
+             <iframe width="100" height="38" src="https://www.youtube.com/embed/lCCESmq9-vs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="finsh"></iframe>
+             <img class ="mygamedone"  src="img/giphy.gif"  style="position: absolute; top: 170px; left: 470px;  "/>
+             <img class ="mygamedone2"  src="img/abstract-blue-wave-design-on-transparent-background-vector.jpg"  style="position: absolute; top: 270px; left: 390px;  "/>
+           
+</div>
+    
+    
+    <script src="src/js/clickcounter.js"></script>
     <script src="/src/app.js"></script>
 </body>
 </html>
